@@ -1,0 +1,101 @@
+:root{
+  --bg:#050505;
+  --panel:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.12);
+  --text:#f5f5f5;
+  --muted:#a1a1aa;
+  --white:#ffffff;
+  --dark:#000000;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial, Helvetica, sans-serif;background:linear-gradient(180deg,#111 0%,#070707 45%,#000 100%);color:var(--text)}
+body{overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.page{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:28px 24px 36px}
+.topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:24px}
+.eyebrow{text-transform:uppercase;letter-spacing:.38em;color:#71717a;font-size:12px;margin-bottom:8px}
+h1{margin:0;font-size:clamp(28px,5vw,54px);font-weight:900;letter-spacing:-0.03em}
+.badge{padding:12px 16px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.05);color:var(--muted);font-size:14px}
+.link-badge:hover{background:rgba(255,255,255,.12)}
+.screen{display:none}
+.screen.active{display:block}
+.menu-grid,.game-layout,.dev-layout{display:grid;gap:24px}
+.menu-grid{grid-template-columns:360px 1fr;min-height:calc(100vh - 150px)}
+.left-menu{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.menu-stack{display:flex;flex-direction:column;gap:14px}
+.menu-btn,.dev-btn,.primary-btn,.tool-btn{
+  border:none;cursor:pointer;border-radius:22px;padding:18px 20px;font-size:18px;
+  transition:.2s ease;background:rgba(255,255,255,.09);color:var(--white);border:1px solid rgba(255,255,255,.16)
+}
+.menu-btn{text-align:left}
+.menu-btn:hover,.tool-btn:hover,.primary-btn:hover{background:rgba(255,255,255,.18)}
+.dev-btn{background:#f2f2f2;color:#000;font-weight:700;display:block;text-align:left}
+.dev-btn:hover{background:#ffffff}
+.secondary-btn{background:rgba(255,255,255,.08)}
+.hero-card,.game-card,.panel-card{
+  border:1px solid var(--border);
+  background:var(--panel);
+  backdrop-filter:blur(10px);
+  border-radius:32px;
+  box-shadow:0 18px 60px rgba(0,0,0,.35);
+}
+.hero-card{padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-card h2{margin:0;max-width:760px;font-size:clamp(32px,5vw,68px);line-height:1.03;font-weight:900}
+.hero-card p{max-width:650px;color:#d4d4d8;font-size:17px;line-height:1.8;margin-top:20px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.feature-card{padding:18px;border-radius:22px;background:rgba(0,0,0,.3);border:1px solid var(--border)}
+.feature-card strong{display:block;font-size:22px;margin-bottom:8px}
+.feature-card span{color:var(--muted);font-size:14px}
+.panel-screen{max-width:860px;margin:0 auto}
+.panel-card{padding:30px}
+.panel-card h2,.panel-card h3{margin:0 0 10px}
+.panel-card p{margin:0;color:var(--muted)}
+.panel-card.center{text-align:center}
+.panel-card.small{padding:22px}
+.setting-row,.switch-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:24px 0}
+.setting-row input[type="range"]{flex:1}
+.switch-row{padding:18px;border:1px solid var(--border);border-radius:22px;background:rgba(0,0,0,.28)}
+.switch-row p{margin-top:4px;font-size:14px}
+.game-layout,.dev-layout{grid-template-columns:1fr 300px}
+.game-card{padding:18px}
+.side-panel{display:flex;flex-direction:column;gap:18px}
+#gameCanvas{width:100%;max-width:100%;background:linear-gradient(180deg,#121212 0%,#050505 100%);border-radius:24px;border:1px solid var(--border);display:block}
+.note{line-height:1.7}
+.editor-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;color:#e4e4e7;gap:12px;flex-wrap:wrap}
+.editor-grid{display:grid;grid-template-columns:repeat(32,22px);gap:2px;background:rgba(255,255,255,.04);padding:10px;border-radius:20px;overflow:auto}
+.tile{
+  width:22px;height:22px;border:1px solid rgba(255,255,255,.08);border-radius:4px;cursor:pointer;
+  background:#0a0a0a;
+}
+.tile.wall{background:#d4d4d8}
+.tile.special{background:#52525b}
+.tile.anchor{background:#fafafa; outline:2px solid rgba(255,255,255,.35)}
+.tile.checkpoint{background:#a1a1aa}
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0}
+.tool-btn.active{background:#fff;color:#000;font-weight:700}
+.button-stack{display:flex;flex-direction:column;gap:8px}
+textarea{
+  width:100%;min-height:170px;resize:vertical;margin-top:12px;border-radius:18px;
+  background:rgba(0,0,0,.4);color:#ececec;border:1px solid var(--border);padding:14px
+}
+.snow-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.snowflake{
+  position:absolute;top:-10px;width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.8);animation:fall linear infinite
+}
+@keyframes fall{
+  0%{transform:translateY(-10vh) translateX(0);opacity:0}
+  10%{opacity:.7}
+  100%{transform:translateY(110vh) translateX(40px);opacity:0}
+}
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.08;
+  background-image:radial-gradient(circle, white 1px, transparent 1px);
+  background-size:8px 8px;
+}
+@media (max-width: 1100px){
+  .menu-grid,.game-layout,.dev-layout{grid-template-columns:1fr}
+  .menu-grid{min-height:auto}
+  .feature-grid{grid-template-columns:1fr}
+  .editor-grid{grid-template-columns:repeat(32,20px)}
+}

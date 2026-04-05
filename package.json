@@ -1,0 +1,16 @@
+{
+  "name": "sanabi-render-github-v2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Render-ready Sanabi-style grayscale game preview with developer map editor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

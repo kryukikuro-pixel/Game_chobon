@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Map Tool</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="snow-layer" id="snowLayer"></div>
+  <div class="grain"></div>
+
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">developer tool</div>
+        <h1>MAP EDITOR</h1>
+      </div>
+      <a class="badge link-badge" href="/">메인 메뉴로</a>
+    </header>
+
+    <section class="dev-layout active">
+      <div class="game-card">
+        <div class="editor-top">
+          <strong>개발자 전용 맵 에디터</strong>
+          <span>로컬 저장 / JSON 불러오기 가능</span>
+        </div>
+        <div id="editorGrid" class="editor-grid"></div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-card small">
+          <h3>툴</h3>
+          <div class="tool-grid">
+            <button class="tool-btn active" data-tile="0">빈칸</button>
+            <button class="tool-btn" data-tile="1">벽</button>
+            <button class="tool-btn" data-tile="2">특수</button>
+            <button class="tool-btn" data-tile="3">와이어점</button>
+            <button class="tool-btn" data-tile="4">체크포인트</button>
+          </div>
+
+          <div class="button-stack">
+            <button id="exportBtn" class="primary-btn">맵 JSON 내보내기</button>
+            <button id="saveBtn" class="primary-btn secondary-btn">브라우저에 저장</button>
+            <button id="loadBtn" class="primary-btn secondary-btn">저장된 맵 불러오기</button>
+            <button id="applyBtn" class="primary-btn secondary-btn">게임용 맵으로 적용</button>
+          </div>
+
+          <textarea id="mapOutput" placeholder="여기에 맵 JSON이 표시됨"></textarea>
+        </div>
+
+        <div class="panel-card small">
+          <h3>타일 설명</h3>
+          <ul>
+            <li>빈칸 = 이동 가능</li>
+            <li>벽 = 발판</li>
+            <li>특수 = 장식/오브젝트용</li>
+            <li>와이어점 = Z로 연결 가능한 포인트</li>
+            <li>체크포인트 = 리셋 위치</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/dev.js"></script>
+</body>
+</html>

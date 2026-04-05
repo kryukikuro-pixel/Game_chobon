@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanabi Style Preview V2</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="snow-layer" id="snowLayer"></div>
+  <div class="grain" id="grainLayer"></div>
+
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">prototype preview v2</div>
+        <h1>SANABI STYLE PROJECT</h1>
+      </div>
+      <div class="badge">흑백 · 눈 배경 · 액션 프로토타입 · Render Ready</div>
+    </header>
+
+    <section id="menuScreen" class="screen active">
+      <div class="menu-grid">
+        <div class="left-menu">
+          <div class="menu-stack">
+            <button class="menu-btn" id="startBtn">시작</button>
+            <button class="menu-btn" id="settingsBtn">게임 설정</button>
+            <button class="menu-btn" id="exitBtn">게임 종료</button>
+          </div>
+          <a class="dev-btn" href="/dev">개발자 전용 맵 툴 열기</a>
+        </div>
+
+        <div class="hero-card">
+          <div>
+            <div class="eyebrow">preview concept</div>
+            <h2>눈 내리는 도시에서 시작되는 흑백 액션.</h2>
+            <p>
+              시작 화면, 방향키 이동, 점프, 간단한 와이어 액션, 개발자용 맵 에디터까지 포함된
+              GitHub / Render 업로드용 버전.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <strong>이동</strong>
+              <span>방향키 + 점프</span>
+            </div>
+            <div class="feature-card">
+              <strong>액션</strong>
+              <span>Z 와이어</span>
+            </div>
+            <div class="feature-card">
+              <strong>개발 툴</strong>
+              <span>맵 저장/불러오기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="settingsScreen" class="screen panel-screen">
+      <div class="panel-card">
+        <h2>게임 설정</h2>
+        <p>눈 효과, 필름 그레인 정도만 미리보기용으로 연결해둠.</p>
+
+        <label class="setting-row">
+          <span>눈 효과 강도</span>
+          <input id="snowRange" type="range" min="10" max="120" value="60" />
+          <strong id="snowValue">60%</strong>
+        </label>
+
+        <label class="switch-row">
+          <div>
+            <strong>필름 그레인</strong>
+            <p>거친 화면 질감 on/off</p>
+          </div>
+          <input id="grainToggle" type="checkbox" checked />
+        </label>
+
+        <button class="primary-btn backMenuBtn">메뉴로 돌아가기</button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen game-layout">
+      <div class="game-card">
+        <canvas id="gameCanvas" width="960" height="540"></canvas>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-card small">
+          <h3>조작법</h3>
+          <ul>
+            <li>← → : 이동</li>
+            <li>↑ 또는 Space : 점프</li>
+            <li>Z : 와이어 연결/해제</li>
+            <li>R : 체크포인트로 리셋</li>
+          </ul>
+          <button class="primary-btn backMenuBtn">메뉴로 돌아가기</button>
+        </div>
+
+        <div class="panel-card small">
+          <h3>현재 포함 기능</h3>
+          <ul>
+            <li>기본 횡스크롤 이동</li>
+            <li>앵커 포인트 와이어</li>
+            <li>체크포인트</li>
+            <li>맵 JSON 로드</li>
+          </ul>
+        </div>
+
+        <div class="panel-card small">
+          <h3>설명</h3>
+          <p class="note">
+            진짜 산나비처럼 완성된 전투/훅 시스템은 아니고, 분위기와 구조를 먼저 잡기 위한 프로토타입 버전이야.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="exitScreen" class="screen panel-screen">
+      <div class="panel-card center">
+        <h2>게임 종료</h2>
+        <p>웹에서는 종료 대신 메뉴로 되돌아가게 해둠.</p>
+        <button class="primary-btn backMenuBtn">다시 돌아가기</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
